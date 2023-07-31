@@ -1,0 +1,33 @@
+{
+  "name": "be",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NguyenTruong101/Codelab.git"
+  },
+  "keywords": [
+    "codelab"
+  ],
+  "author": "DuyTruong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NguyenTruong101/Codelab/issues"
+  },
+  "homepage": "https://github.com/NguyenTruong101/Codelab#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^7.1.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.3.1",
+    "mongoose": "^7.4.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.0.1"
+  }
+}
