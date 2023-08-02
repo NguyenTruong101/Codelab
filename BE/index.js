@@ -34,16 +34,16 @@ const Express = require("express");
 const Mongoose = require("mongoose");
 const BodyParser = require("body-parser");
 Mongoose.connect("mongodb://localhost/db_codelab");
-const PersonModel = Mongoose.model("person", {
-  firstname: String,
-  lastname: String
+const PersonModel = Mongoose.model("admin", {
+  adminAccount: String,
+  adminPassword: String
 });
 
 var app = Express();
 app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({ extended: true }));
 // Define REST API
-app.post("/person", async (req, res) => {
+app.post("/admin", async (req, res) => {
   try {
     var person = new PersonModel(request.body);
     var result = await person.save();
@@ -52,7 +52,7 @@ app.post("/person", async (req, res) => {
     response.status(500).send(error);
   }
 });
-app.get("/people", async (req, res) => {
+app.get("/admin", async (req, res) => {
   try {
     var result = await PersonModel.find().exec();
     response.send(result);
@@ -60,7 +60,7 @@ app.get("/people", async (req, res) => {
     response.status(500).send(error);
   }
 });
-app.get("/person/:id", async (req, res) => {
+app.get("/admin/:id", async (req, res) => {
   try {
     var person = await PersonModel.findById(request.params.id).exec();
     response.send(person);
@@ -68,7 +68,7 @@ app.get("/person/:id", async (req, res) => {
     response.status(500).send(error);
   }
 });
-app.put("/person/:id", async (req, res) => {
+app.put("/admin/:id", async (req, res) => {
   try {
     var person = await PersonModel.findById(request.params.id).exec();
     person.set(request.body);
@@ -78,7 +78,7 @@ app.put("/person/:id", async (req, res) => {
     response.status(500).send(error);
   }
 });
-app.delete("/person/:id", async (req, res) => {
+app.delete("/admin/:id", async (req, res) => {
   try {
     var result = await PersonModel.deleteOne({ _id: request.params.id }).exec();
     response.send(result);
