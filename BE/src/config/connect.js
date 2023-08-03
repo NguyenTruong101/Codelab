@@ -1,24 +1,13 @@
-const Express = require("express");
-const Mongoose = require("mongoose");
-const BodyParser = require("body-parser");
-Mongoose.connect("mongodb://localhost/db_codelab");
+import mongoose from 'mongoose';
 
-const Admins = Mongoose.model("admin",{
-    adminAccount: String,
-    adminPassword: String,
-});
+export const Connect = (url = {}) => {
+  mongoose.connect(url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
 
-var app = Express();
-app.use(BodyParser.json());
-app.use(BodyParser.urlencoded({extended :true}));
+  const Database = mongoose.connection;
 
-app.post("/admin", async (req, res) => {
-    try {
-        var admin = new Admins(request.body);
-        var result = await admin.save();
-        response.send(result);
-    } catch (error) {
-        response.status(500).send(error);
-    }
-});
-
+  Database.on('error', console.error.bind(console, 'Connection error:'));
+  Database.once('open', () => console.log('Connected to MongoDatabase!'));
+};

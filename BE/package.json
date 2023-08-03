@@ -2,9 +2,9 @@
   "name": "be",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,11 +16,15 @@
   ],
   "author": "DuyTruong",
   "license": "ISC",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/NguyenTruong101/Codelab/issues"
   },
   "homepage": "https://github.com/NguyenTruong101/Codelab#readme",
   "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "cookieparser": "^0.1.0",
+    "cors": "^2.8.5",
     "express": "^4.18.2",
     "express-handlebars": "^7.1.0"
   },
