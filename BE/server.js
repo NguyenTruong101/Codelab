@@ -19,8 +19,8 @@ import cookieParser from 'cookie-parser';
 import httpError from 'http-errors';
 import dotenv from 'dotenv';
 import {Connect} from './src/config/connect.js'
-// import userRouter from './routers/userRouter.js'
-// import updateRouter from './routers/updateRouter.js'
+// import userRouter from './src/routers/updateRouter.js'
+// import updateRouter from '.src//routers/updateRouter.js'
 
 const app = express();
 
@@ -59,5 +59,5 @@ app.use((error, request, response, next) => {
 });
 
 app.listen(3000, () => {
-    console.log('Server started on port 80...');
+    console.log('Server started on port 8080');
 });
