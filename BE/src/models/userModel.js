@@ -3,15 +3,6 @@ import mongoose, { model } from 'mongoose';
 const { Schema } = mongoose;
 
 const User = new Schema({
-    userName: {
-        type: String,
-        required: [true, 'Tên không được để trống'],
-        maxLength: [30, 'Tên của bạn không được vượt quá 30 ký tự']
-    },
-    phoneNumber: {
-        type: Number,
-        require: true,
-    },
     userEmail: {
         type: String,
         required: [true, 'Email không được để trống'],

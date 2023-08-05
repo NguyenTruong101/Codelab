@@ -1,10 +1,10 @@
-import User from '../Models/userModel.js';
+import User from '../models/userModel.js';
 import bcrypt from 'bcryptjs';
 import httpError from 'http-errors';
 
 export default async (request, response, next) => {
     const { email, password } = request.body;
-    // const validateEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const validateEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     // Check if the email and password exist or not.
     if (!email || !password) {
@@ -33,7 +33,6 @@ export default async (request, response, next) => {
         const newUser = new User({
             email,
             password: await bcrypt.hash(password, 10),
-            list_music: []
         });
         await newUser.save();
 
