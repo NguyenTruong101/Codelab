@@ -38,7 +38,7 @@ export default async (request, response, next) => {
 
         return response.json({
             status: 200,
-            messages: "Updating song successfully.",
+            messages: "Updating course successfully.",
             list_course: courseUpdate
 
 
@@ -47,7 +47,7 @@ export default async (request, response, next) => {
     else
         return next(
             httpError(
-                500, "Updating song failed."
+                500, "Updating course failed."
             ));
 
 };
