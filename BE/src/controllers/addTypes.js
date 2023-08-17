@@ -4,8 +4,8 @@ import httpError from 'http-errors';
 
 export default async (request, response, next) => {
 
-    const { name, professon, created_date, modified_date,status } = request.body;
-    if (!name && !professon && !created_date && !modified_date && !status )
+    const { course_id, type, created_date, modified_date } = request.body;
+    if (!course_id && !type && !created_date && !modified_date  )
         return next(
             httpError(
                 400, "Bad Request."
@@ -15,33 +15,30 @@ export default async (request, response, next) => {
     const user = await User.findOne({ _id: _id });
     if (user) {
 
-        const courseName = await (await Course.find({ _id: { $in: user.list_course } })).map(item => item?.name);
-        if (courseName.includes(name))
+        const courseType = await (await Course.find({ _id: { $in: user.list_type } })).map(item => item?.name);
+        if (courseType.includes(course_id))
             return next(
                 httpError(
                     409, "Course already exists."
                 ));
 
-        const newCourse = new Course({
-            name,
+        const newType = new Type({
+            course_id,
             professon,
             created_date,
             modified_date,
-            status,
         });
 
-        const course = await newCourse.save();
-        await User.findByIdAndUpdate(user._id, { $push: { list_course: course._id } }, { new: true });
-        user.list_course.push(course._id);
-        const courseUpdate = await Course.find({ _id: { $in: user.list_course } });
+        const type = await newType.save();
+        await User.findByIdAndUpdate(user._id, { $push: { list_type: type._id } }, { new: true });
+        user.list_type.push(type._id);
+        const typeUpdate = await Type.find({ _id: { $in: user.list_type } });
 
 
         return response.json({
             status: 200,
-            messages: "Updating course successfully.",
-            list_course: courseUpdate
-
-
+            messages: "Updating type_course successfully.",
+            list_type: typeUpdate
         });
     }
     else
