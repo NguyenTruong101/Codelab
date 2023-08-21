@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import AdminLogin from './Components/AdminComponents/AdminLogin';
+import AdminSignin from './Components/AdminComponents/AdminSignin';
 
 import {
   BrowserRouter,
@@ -13,7 +13,7 @@ function App() {
    <div>
     <BrowserRouter>
       <Routes>
-        <Route exact path ='/adminLogin' element = {<AdminLogin/>} ></Route>
+        <Route exact path ='/adminSignin' element = {<AdminSignin/>} ></Route>
       </Routes>
     </BrowserRouter>
    </div>
