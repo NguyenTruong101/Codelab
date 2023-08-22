@@ -2,16 +2,16 @@ import mongoose, { model } from 'mongoose';
 
 const { Schema } = mongoose;
 
-const User = new Schema({
-    userEmail: {
+const Admin = new Schema({
+    adminAccount: {
         type: String,
         required: [true, 'Email không được để trống'],
     },
-    userPassword: {
+    adminPassword: {
         type: String,
         required: [true, 'Mật khẩu không được để trống'],
-        minlength: [8, 'Mật khẩu cảu bạn phải dài hơn 8 ký tự'],
+        minlength: [8, 'Mật khẩu của bạn phải dài hơn 8 ký tự'],
     },
 });
-const UserModel =  mongoose.model('User', User);
-export default UserModel;
+const AdminModel =  mongoose.model('Admin', Admin);
+export default AdminModel;

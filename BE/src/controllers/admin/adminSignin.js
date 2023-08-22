@@ -1,32 +1,29 @@
-
 import httpError from 'http-errors';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
-import UserModel from '../models/userModel.js';
-
-
+import adminModel from '../../models/adminModel';
 
 export default async (request, response, next) => {
-    const { email, password } = request.body;
+    const { account, password } = request.body;
 
-    if (!email || !password)
-        return next(httpError(400, 'Email & Password is required!'));
+    if (!account || !password)
+        return next(httpError(400, 'account & Password is required!'));
 
-    const user = await UserModel.findOne({ email: email });
-    if (!user)
+    const admin = await adminModel.findOne({ account: account });
+    if (!admin)
         return next(httpError(401, 'Unauthorized.'));
 
-    const isPasswordMatch = await bcrypt.compare(password, user.password);
+    const isPasswordMatch = await bcrypt.compare(password, admin.password);
     if (!isPasswordMatch)
         return next(httpError(401, 'Unauthorized.'));
 
-    const accessToken = jwt.sign({ id: user._id, email: user.email }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1d' });
+    const accessToken = jwt.sign({ id: user._id, account: user.account }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1d' });
     //const refeshToken = jwt.sign({ id: user._id }, process.env.REFESH_TOKEN_SECRET, { expiresIn: '365d' });
 
     await response.cookie('codelab/cookie', accessToken, { httpOnly: true, signed: true });
     return response.json({
         status: 200,
-        message: 'Login suscess.',
+        message: 'Signin Admin suscess.',
         accessToken
     });
     

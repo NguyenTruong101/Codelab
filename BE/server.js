@@ -1,16 +1,3 @@
-// const express = require('express');
-// const bodyParser = require('body-parser')
-
-// const app = express();
-// const PORT = process.env.PORT || 8080;
-
-// app.use(bodyParser.json())
-
-// app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
-
-// app.get('/', (req, res) => {
-//     res.send(`Listening on ${ PORT }`);
-// })
 
 
 import express from 'express';
@@ -18,9 +5,11 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import httpError from 'http-errors';
 import dotenv from 'dotenv';
-import {Connect} from './src/config/connect.js'
-// import userRouter from './src/routers/updateRouter.js'
-// import updateRouter from '.src//routers/updateRouter.js'
+import {Connect} from './src/config/connect.js';
+import userRouter from './src/routers/userRouter.js';
+import updateRouter from './src/routers/updateRouter.js';
+import adminRouter from './src/routers/adminRouter.js';
+
 
 const app = express();
 
@@ -33,9 +22,10 @@ app.use(cookieParser(process.env.COOKIE_PARSER_SECRET));
 //Connect to MongoDB
 Connect(process.env.MONGODB_URL);
 
-//Use Router
-// app.use('/api/users', userRouter);
-// app.use('/api/update', updateRouter);
+// Use Router
+app.use('/api/users', userRouter);
+app.use('/api/update', updateRouter);
+app.use('api/admin', adminRouter);
 
 //404 handler and pass to errror handler
 app.use((request, response, next) => {

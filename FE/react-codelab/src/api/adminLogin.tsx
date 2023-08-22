@@ -7,7 +7,7 @@ export interface AdminAcc{
 const adminAPI = {
  // POST đăng nhập
  loginAdmin : (data:AdminAcc) => {
-  const url = `${process.env.REACT_APP_API_URL}/api/admin/login`
+  const url = `${process.env.REACT_APP_API_URL}/api/users/signin`
   return axios.post(url,data)
  },
 }
