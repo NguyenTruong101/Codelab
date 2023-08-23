@@ -25,7 +25,7 @@ Connect(process.env.MONGODB_URL);
 // Use Router
 app.use('/api/users', userRouter);
 app.use('/api/update', updateRouter);
-app.use('api/admin', adminRouter);
+app.use('/api/admin', adminRouter); // /api/admin/sigin | /apo/admin/signup
 
 //404 handler and pass to errror handler
 app.use((request, response, next) => {

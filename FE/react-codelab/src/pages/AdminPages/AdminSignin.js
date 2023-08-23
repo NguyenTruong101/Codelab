@@ -8,8 +8,14 @@ const AdminSignin = () => {
 
     const handleSignin = async () => {
         try {
-            const res = await axios.post('http://localhost:8080/api/users/signin', { email, password });
-            const token = res.data.token;
+            const res = await axios.post('http://localhost:8080/api/admin/signin', { account: email, password });
+           
+            if (res.data && res.data.status === 200) {
+                const token = res.data.accessToken;
+                // luu vao localstorage 
+                localStorage.setItem("token", token);
+                window.location.href = '/admin'
+            }
         }
         catch (error) {
             console.error(error);
