@@ -2,9 +2,8 @@ import { SearchIcon } from "@chakra-ui/icons"
 import { Button, Input, InputGroup, InputLeftElement, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure, useToast } from "@chakra-ui/react"
 import { useState,useEffect,useRef, useContext, ChangeEvent } from "react"
 import { Link } from "react-router-dom"
-const Course = () => {
-   
-    return (
+const Lesson = () => {
+    return(
         <section>
             <div className='flex justify-between items-center mb-7 md:block'>
                 <div>
@@ -102,7 +101,7 @@ const Course = () => {
                 </Modal>
             </div>
         </section>
-    )
+    );
 }
 
-export default Course;
+export default Lesson;

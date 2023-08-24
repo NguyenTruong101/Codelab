@@ -12,6 +12,8 @@ import {
 import LayoutAdmin from './Components/Layout/LayoutAdmin.js';
 import TypeCourse from './pages/AdminPages/TypeCourse';
 import Course from './pages/AdminPages/Course';
+import Lesson from './pages/AdminPages/Lesson';
+import Blog from './pages/AdminPages/Blog';
 function App() {
   return (
    <div>
@@ -21,6 +23,8 @@ function App() {
         <Route path='/admin' element={<LayoutAdmin/>}>
           <Route path ='course-type' element={<TypeCourse />} />
           <Route path ='course' element={<Course />} />
+          <Route path ='lesson' element={<Lesson/>}></Route>
+          <Route path ='Blog' element={<Blog/>}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

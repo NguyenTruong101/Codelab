@@ -4,15 +4,16 @@ const AdminSidebar = () => {
             <div>
                 <div class="-mx-6 px-6 py-4">
                     <a href="#" title="home">
-                        <img src="https://tailus.io/sources/blocks/stats-cards/preview/images/logo.svg" class="w-32" alt="tailus logo" />
+                        {/* <img src="https://tailus.io/sources/blocks/stats-cards/preview/images/logo.svg" class="w-32" alt="tailus logo" /> */}
+                        <img src="../../src/assets/Logo/Codelab.svg" class="w-20" alt=""></img> Codelab
                     </a>
                 </div>
 
-                <div class="mt-8 text-center">
+                {/* <div class="mt-8 text-center">
                     <img src="https://tailus.io/sources/blocks/stats-cards/preview/images/second_user.webp" alt="" class="w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28" />
                     <h5 class="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">Cynthia J. Watts</h5>
                     <span class="hidden text-gray-400 lg:block">Admin</span>
-                </div>
+                </div> */}
 
                 <ul class="space-y-2 tracking-wide mt-8">
                     <li>
