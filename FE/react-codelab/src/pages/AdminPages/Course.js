@@ -14,7 +14,7 @@ const Course = () => {
                     <InputGroup>
                         <InputLeftElement
                             pointerEvents='none'
-                            children={<SearchIcon color='#8AAAE5' />}
+                            children={<SearchIcon color='#4298b5' />}
                         />
                         <Input
                             type='search'
@@ -22,9 +22,7 @@ const Course = () => {
                             placeholder='Tìm menu...'
                             className='cursor-pointer text-maintext'
                             htmlSize={25} width='auto'
-                            focusBorderColor='#8AAAE5'
-                        
-                        
+                            focusBorderColor='#4298b5'
                         />
                     </InputGroup>
                 </div>
