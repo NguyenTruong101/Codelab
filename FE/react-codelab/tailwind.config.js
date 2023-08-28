@@ -6,10 +6,9 @@ module.exports ={
   ],
   theme: {
     extend: {
-      transparent: 'transparent',
-      current: 'currentColor',
-      'maincolor': '#4298b5',
-      'maintext': '#576574',
+      colors: {
+        custom: '#00bce4',
+      },
     },
   },
   plugins: [],

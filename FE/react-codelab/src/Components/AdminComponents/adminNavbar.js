@@ -14,7 +14,7 @@ const AdminNavbar = () => {
                             placeholder='Search'
                             className='cursor-pointer text-maintext'
                             htmlSize={25} width='auto'
-                            focusBorderColor='#4298b5'
+                            focusBorderColor='#00bce4'
                         />
                     <button aria-label="chat" class="w-10 h-10 rounded-xl border bg-gray-100 focus:bg-gray-100 active:bg-gray-200">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 m-auto text-gray-red600" fill="none" viewBox="0 0 24 24" stroke="currentColor">

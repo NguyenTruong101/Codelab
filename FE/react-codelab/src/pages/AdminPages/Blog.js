@@ -7,21 +7,21 @@ const Blog = () => {
         <section>
             <div className='flex justify-between items-center mb-7 md:block'>
                 <div>
-                    <Link to='#' className='bg-sky-600 text-white py-2 px-2 rounded-[5px] cursor-pointer hover:brightness-90 duration-200'>Add Course</Link>
+                    <Link to='#' className='bg-custom text-white py-2 px-2 rounded-[5px] cursor-pointer hover:brightness-90 duration-200'>Add Blog</Link>
                 </div>
                 <div className='md:mt-5'>
                     <InputGroup>
                         <InputLeftElement
                             pointerEvents='none'
-                            children={<SearchIcon color='#8AAAE5' />}
+                            children={<SearchIcon color='#00bce4' />}
                         />
                         <Input
                             type='search'
                             variant='outline'
-                            placeholder='Tìm menu...'
+                            placeholder='Search'
                             className='cursor-pointer text-maintext'
                             htmlSize={25} width='auto'
-                            focusBorderColor='#8AAAE5'
+                            focusBorderColor='#00bce4'
                         
                         
                         />
@@ -31,7 +31,7 @@ const Blog = () => {
             <section>
                 <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
                     <table className="w-full text-sm text-left text-maintext">
-                        <thead className="text-xs text-white uppercase bg-sky-600">
+                        <thead className="text-xs text-white uppercase bg-custom">
                             <tr>
                                 <th scope="col" className="py-3 px-6 w-[5%]">
                                     STT
